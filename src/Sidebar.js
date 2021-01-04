@@ -17,18 +17,18 @@ import db from './firebase';
 
 function Sidebar() {
 
-    const [channels, setChannels] = useState([])
+    const [channels, setChannels] = useState([]);
 
     useEffect(() => {
-        db.collection('rooms').onSnapshot((snapshot) => {
+        db.collection('rooms').onSnapshot(snapshot => (
             setChannels(
-                snapshot.docs.map(doc => ({
+                snapshot.docs.map((doc) => ({
                 id: doc.id,
                 name: doc.data().name,
-
-                })))
-            })
-    }, [])
+                }))
+            ))
+        );
+    }, [channels]);
 
     return (
         <div className='sidebar'>
@@ -54,8 +54,8 @@ function Sidebar() {
                 <SidebarOption Icon={ExpandMoreIcon} title='Channels' />
                 <hr />
                 <SidebarOption Icon={AddIcon} title='Add Channel'addChannelOption />
-                {channels.map((channel) => {
-                    <SidebarOption title={channel.name} id={channel.id}/>
+                {channels.map(channel => {
+                    return <SidebarOption title={channel.name} id={channel.id}/>
                 })}
         </div>
     )
