@@ -2,15 +2,20 @@ import { FiberManualRecord } from '@material-ui/icons';
 import React from 'react';
 import './Sidebar.css';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import CreateIcon from '@material-ui/icons/Create';
 
 function Sidebar() {
     return (
         <div className='sidebar'>
             <div className='sidebar__header'>
-                <h4>Suck at Coding with Me</h4>
-                <h3>
-                    <FiberManualRecordIcon />
-                </h3>
+                <div className='sidebar__info'>
+                    <h2>Suck at Coding with Me</h2>
+                    <h3>
+                        <FiberManualRecordIcon />
+                        Harrison
+                    </h3>
+                </div>
+                <CreateIcon />
             </div>
         </div>
     )
