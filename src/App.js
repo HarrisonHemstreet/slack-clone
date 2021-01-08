@@ -5,9 +5,21 @@ import Sidebar from './Sidebar';
 import Chat from './Chat';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Login from './Login';
+import {auth, provider} from './firebase';
 
 function App() {
   const [user, setUser] = useState(null);
+
+  const signIn = () => {
+    auth
+      .signInWithPopup(provider)
+      .then(result => {
+        console.log(result);
+      })
+      .catch(error => {
+        alert(error.message);
+      });
+  }
 
   return (
     <div className="App">
